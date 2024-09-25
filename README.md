@@ -1,5 +1,5 @@
-# EPPC-ALMWS
-Repository for the Application Lifecycle Management (ALM) pre-Day workshop at European Power Platform Conference (EPPC)
+# Nordic-ALMWS
+Repository for the Application Lifecycle Management (ALM) pre-Day workshop at Nordic Summit 2024
 
 ## Labs
 The following describes the labs you will be working on during (or after) the workshop.
