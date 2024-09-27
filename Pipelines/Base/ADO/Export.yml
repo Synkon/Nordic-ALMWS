@@ -4,6 +4,8 @@ pr: none
 pool: synkon-agent
 
 steps:
+- checkout: self
+  persistCredentials: true
 - task: PowerPlatformToolInstaller@2
   displayName: 'Power Platform Tool Installer '
 - task: PowerPlatformExportSolution@2
