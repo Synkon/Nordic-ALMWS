@@ -47,5 +47,5 @@ steps:
       git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" checkout main
       git add --all
       git commit -m "$(Build.DefinitionName) $(Build.BuildNumber)"
-      git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" pull origin main
-      git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origin main
+      git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" pull origin
+      git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origin
