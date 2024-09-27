@@ -10,33 +10,33 @@ steps:
   displayName: Publish Customizations
   inputs:
     authenticationType: 'PowerPlatformSPN'
-    PowerPlatformSPN: 'NordicSummitDev'
+    PowerPlatformSPN: $(serviceConnection)
     AsyncOperation: true
     MaxAsyncWaitTime: '60'
 - task: PowerPlatformExportSolution@2
   displayName: Export Solution - Unmanaged
   inputs:
     authenticationType: 'PowerPlatformSPN'
-    PowerPlatformSPN: 'NordicSummitDev'
-    SolutionName: 'NordicSummitALM'
-    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\NordicSummitALM.zip'
+    PowerPlatformSPN: $(serviceConnection)
+    SolutionName: $(solution1)
+    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\.zip'
     AsyncOperation: true
     MaxAsyncWaitTime: '60'
 - task: PowerPlatformExportSolution@2
   displayName: Export Solution - Managed
   inputs:
     authenticationType: 'PowerPlatformSPN'
-    PowerPlatformSPN: 'NordicSummitDev'
-    SolutionName: 'NordicSummitALM'
-    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\NordicSummitALM_managed.zip'
+    PowerPlatformSPN: $(serviceConnection)
+    SolutionName: $(solution1)
+    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\$(solution1)_managed.zip'
     Managed: true
     AsyncOperation: true
     MaxAsyncWaitTime: '60'
 - task: PowerPlatformUnpackSolution@2
   displayName: Unpack unmanaged Solution
   inputs:
-    SolutionInputFile: '$(Build.ArtifactStagingDirectory)\\NordicSummitALM.zip'
-    SolutionTargetFolder: '$(build.sourcesdirectory)\PowerPlatform\Solutions\NordicSummitALM'
+    SolutionInputFile: '$(Build.ArtifactStagingDirectory)\\$(solution1).zip'
+    SolutionTargetFolder: '$(build.sourcesdirectory)\PowerPlatform\Solutions\$(solution1)'
     SolutionType: 'Both'
 - task: CmdLine@2
   displayName: Commit to Repo
