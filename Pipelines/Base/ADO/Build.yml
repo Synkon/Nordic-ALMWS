@@ -1,16 +1,15 @@
 trigger: none
 pr: none
 
-pool:
-  vmImage: 'windows-latest'
+pool: synkon-agent
 
 steps:
 - task: PowerPlatformToolInstaller@2
   displayName: 'Power Platform Tool Installer '
 - task: PowerPlatformPackSolution@2
   inputs:
-    SolutionSourceFolder: '$(build.sourcesdirectory)\PowerPlatform\Solutions\ALMDemo'
-    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\ALMDemo_managed.zip'
+    SolutionSourceFolder: '$(build.sourcesdirectory)\PowerPlatform\Solutions\$(solution1)'
+    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\$(solution1)_managed.zip'
     SolutionType: 'Managed'
 - task: PublishPipelineArtifact@1
   displayName: Publish Artifacts
