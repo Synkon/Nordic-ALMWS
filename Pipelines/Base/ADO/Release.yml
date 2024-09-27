@@ -12,8 +12,7 @@ stages:
   displayName: 'Deploy to Test'
   jobs:
   - job: deployTest
-    pool: 
-      vmImage: 'windows-latest'
+    pool: synkon-agent
     steps:
     - checkout: self
     - download: buildPipeline   # pipeline resource identifier.
