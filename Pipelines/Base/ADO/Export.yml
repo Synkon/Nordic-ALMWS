@@ -1,8 +1,7 @@
 trigger: none
 pr: none
 
-pool:
-  vmImage: 'windows-latest'
+pool: synkon-agent
 
 steps:
 - task: PowerPlatformToolInstaller@2
