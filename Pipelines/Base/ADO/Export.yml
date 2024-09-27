@@ -19,7 +19,7 @@ steps:
     authenticationType: 'PowerPlatformSPN'
     PowerPlatformSPN: $(serviceConnection)
     SolutionName: $(solution1)
-    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\.zip'
+    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\$(solution1).zip'
     AsyncOperation: true
     MaxAsyncWaitTime: '60'
 - task: PowerPlatformExportSolution@2
