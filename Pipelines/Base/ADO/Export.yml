@@ -11,14 +11,14 @@ steps:
   displayName: Publish Customizations
   inputs:
     authenticationType: 'PowerPlatformSPN'
-    PowerPlatformSPN: 'DEV'
+    PowerPlatformSPN: 'NordicSummitDev'
     AsyncOperation: true
     MaxAsyncWaitTime: '60'
 - task: PowerPlatformExportSolution@2
   displayName: Export Solution - Unmanaged
   inputs:
     authenticationType: 'PowerPlatformSPN'
-    PowerPlatformSPN: 'DEV'
+    PowerPlatformSPN: 'NordicSummitDev'
     SolutionName: 'NordicSummitALM'
     SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\NordicSummitALM.zip'
     AsyncOperation: true
@@ -27,7 +27,7 @@ steps:
   displayName: Export Solution - Managed
   inputs:
     authenticationType: 'PowerPlatformSPN'
-    PowerPlatformSPN: 'DEV'
+    PowerPlatformSPN: 'NordicSummitDev'
     SolutionName: 'NordicSummitALM'
     SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\NordicSummitALM_managed.zip'
     Managed: true
