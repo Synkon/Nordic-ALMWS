@@ -19,8 +19,8 @@ steps:
   inputs:
     authenticationType: 'PowerPlatformSPN'
     PowerPlatformSPN: 'DEV'
-    SolutionName: 'ALMDemo'
-    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\ALMDemo.zip'
+    SolutionName: 'NordicSummitALM'
+    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\NordicSummitALM.zip'
     AsyncOperation: true
     MaxAsyncWaitTime: '60'
 - task: PowerPlatformExportSolution@2
@@ -28,16 +28,16 @@ steps:
   inputs:
     authenticationType: 'PowerPlatformSPN'
     PowerPlatformSPN: 'DEV'
-    SolutionName: 'ALMDemo'
-    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\ALMDemo_managed.zip'
+    SolutionName: 'NordicSummitALM'
+    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\\NordicSummitALM_managed.zip'
     Managed: true
     AsyncOperation: true
     MaxAsyncWaitTime: '60'
 - task: PowerPlatformUnpackSolution@2
   displayName: Unpack unmanaged Solution
   inputs:
-    SolutionInputFile: '$(Build.ArtifactStagingDirectory)\\ALMDemo.zip'
-    SolutionTargetFolder: '$(build.sourcesdirectory)\PowerPlatform\Solutions\ALMDemo'
+    SolutionInputFile: '$(Build.ArtifactStagingDirectory)\\NordicSummitALM.zip'
+    SolutionTargetFolder: '$(build.sourcesdirectory)\PowerPlatform\Solutions\NordicSummitALM'
     SolutionType: 'Both'
 - task: CmdLine@2
   displayName: Commit to Repo
