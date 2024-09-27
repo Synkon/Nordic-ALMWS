@@ -39,7 +39,10 @@ steps:
     script: |
       git config user.email $(Build.RequestedForEmail) 
       git config user.name "$(Build.RequestedFor)"
+      git pull https://github.com/Synkon/Nordic-ALMWS.git
+      git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" fetch
+      git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" checkout main
       git add --all
       git commit -m "$(Build.DefinitionName) $(Build.BuildNumber)"
-      git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" pull
-      git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push
+      git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" pull origin main
+      git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origin main
