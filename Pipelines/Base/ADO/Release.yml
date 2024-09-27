@@ -24,7 +24,7 @@ stages:
       inputs:
         authenticationType: 'PowerPlatformSPN'
         PowerPlatformSPN: 'Test'
-        SolutionInputFile: '$(Pipeline.Workspace)\buildPipeline\drop\ALMDemo_managed.zip'
+        SolutionInputFile: '$(Pipeline.Workspace)\buildPipeline\drop\$(solution1)_managed.zip'
         AsyncOperation: true
         MaxAsyncWaitTime: '60'
         HoldingSolution: false
